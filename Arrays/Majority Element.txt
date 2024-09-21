@@ -1,0 +1,13 @@
+ / *
+ - Through sorting: O(n log n)
+- Through Hashmap : O(n)
+- Moore's Voting Algorithm : O(n)
+* /
+
+// Through sorting
+
+public int majorityElement(int[] nums) {
+    Arrays.sort(nums);
+    int n = nums.length;
+    return nums[n/2];
+}
