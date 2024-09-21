@@ -1,0 +1,25 @@
+/ *
+- If the current index is beyond the maximum reach, return false
+- Update maxReach based on the jump from index i
+- If we can reach the last index, return true
+- If we exit the loop and haven't returned true, return false
+* /
+
+
+    public boolean canJump(int[] nums) {
+        int maxReach = 0;
+        int size = nums.length;
+        
+        for (int i = 0; i < size; i++) {
+            if (i > maxReach) {
+                return false;
+            }
+            maxReach = Math.max(maxReach, i + nums[i]);
+            
+            // We can eliminate the below if condition and directly return true outside the loop
+            if (maxReach >= size - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
