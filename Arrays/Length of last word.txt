@@ -1,0 +1,17 @@
+/ *
+- iterate from end. break the loop if count != 0 && there is a space
+* /
+
+
+    public int lengthOfLastWord(String s) {
+        int i=s.length()-1;
+        int count = 0;
+        for(i=s.length()-1; i>=0; i--) {
+            if (s.charAt(i) == ' ' && count != 0) {
+                break;
+            }
+            if (s.charAt(i) != ' ') {
+                count++ ;
+            }
+        } return count; 
+    }
