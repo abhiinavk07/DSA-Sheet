@@ -1,0 +1,44 @@
+/ *
+- There are two methods. 
+1. n(logn) through sorting
+2. O(n) using Hashmap
+* /
+
+// Sorting method
+    public int hIndex(int[] citations) {
+        Arrays.sort(citations);
+        int num = citations.length;
+        
+        // Loop through the sorted array in reverse order
+        for (int i = 0; i < num; i++) {
+            // Check if the citation count is less than or equal to the current h-index
+            if (citations[num - 1 - i] < i + 1) {
+                return i; // Return h-index when the condition fails
+            }
+        }
+        
+        return num; // If no condition fails, return the total number of papers
+    }
+
+
+
+// Using Hashmap
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int[] buckets = new int[n+1];
+        for(int c : citations) {
+            if(c >= n) {
+                buckets[n]++;
+            } else {
+                 buckets[c]++;
+            }
+        }
+        int count = 0;
+        for(int i = n; i >= 0; i--) {
+            count += buckets[i];
+            if(count >= i) {
+                return i;
+            }
+        }
+        return 0;
+    }
