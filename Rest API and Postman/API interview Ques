@@ -1,0 +1,261 @@
+Sure! Here's a list of answers to the API-related interview questions:
+
+### 1. **Basic API Concepts**
+- **What is an API (Application Programming Interface)?**  
+  An API is a set of protocols, tools, and definitions that allow applications to communicate with each other. It defines the methods and data formats that applications can use to request services or data from each other.
+
+- **What are the differences between REST and SOAP APIs?**  
+  SOAP is a protocol-based API, while REST is an architectural style. SOAP uses XML exclusively, while REST can use different formats like JSON, XML, etc. REST is generally more lightweight and faster due to less overhead compared to SOAP.
+
+- **Explain the difference between synchronous and asynchronous APIs.**  
+  In synchronous APIs, the client sends a request and waits for the response (blocking), while asynchronous APIs allow the client to send a request and continue processing without waiting for the response (non-blocking).
+
+- **What is an API endpoint?**  
+  An API endpoint is a URL where an API can access the resources it needs to perform a task. It's a combination of the URL and the resource you're working with.
+
+- **What is the difference between an API and a Web Service?**  
+  A Web Service is a type of API that uses a network (usually HTTP) for communication. All web services are APIs, but not all APIs are web services.
+
+- **What are the different types of APIs (Open, Internal, Partner, Composite)?**  
+  - **Open APIs:** Publicly available APIs for external developers.
+  - **Internal APIs:** APIs used within an organization.
+  - **Partner APIs:** APIs shared with specific business partners.
+  - **Composite APIs:** APIs that combine multiple services or data from different sources into one response.
+
+- **What are some best practices for designing RESTful APIs?**  
+  - Use nouns to represent resources.
+  - Use proper HTTP methods (GET, POST, PUT, DELETE).
+  - Implement filtering, sorting, and pagination.
+  - Use consistent error handling.
+  - Ensure stateless communication.
+
+- **What is an API contract?**  
+  An API contract is a formal agreement (usually documented) that defines how API consumers can interact with the API. It includes request/response structures, error codes, and usage limits.
+
+### 2. **RESTful API**
+- **What does REST stand for? What are its key principles?**  
+  REST stands for Representational State Transfer. Key principles include:
+  - Statelessness
+  - Client-server architecture
+  - Uniform interface
+  - Resource-based
+  - Cacheability
+
+- **Explain the different HTTP methods (GET, POST, PUT, PATCH, DELETE) used in REST APIs.**  
+  - **GET:** Retrieve data.
+  - **POST:** Create a new resource.
+  - **PUT:** Update an existing resource.
+  - **PATCH:** Partially update an existing resource.
+  - **DELETE:** Delete a resource.
+
+- **What is Idempotency? Which HTTP methods are idempotent?**  
+  Idempotency means that making multiple identical requests has the same effect as making a single request. GET, PUT, DELETE, and HEAD are idempotent, while POST is not.
+
+- **What is the difference between PUT and PATCH?**  
+  PUT replaces the entire resource with new data, while PATCH applies partial updates to a resource.
+
+- **What is the difference between a resource and a representation in REST?**  
+  A resource is an object or entity (e.g., user, product), and its representation is the specific format (e.g., JSON, XML) in which the resource is returned or sent via the API.
+
+- **What are status codes in REST APIs? Can you name some commonly used ones?**  
+  Status codes indicate the outcome of an HTTP request:
+  - **200:** OK (Success)
+  - **201:** Created (Success)
+  - **400:** Bad Request
+  - **401:** Unauthorized
+  - **403:** Forbidden
+  - **404:** Not Found
+  - **500:** Internal Server Error
+
+- **How do you handle versioning in REST APIs?**  
+  You can handle versioning by including the version number in the URL (e.g., `/v1/resource`) or in headers.
+
+- **What are query parameters and path parameters? How are they different?**  
+  - **Path Parameters:** Used to identify specific resources (e.g., `/users/{id}`).
+  - **Query Parameters:** Provide additional filters or options (e.g., `/users?sort=asc`).
+
+- **What is HATEOAS?**  
+  HATEOAS (Hypermedia as the Engine of Application State) is a constraint of REST, allowing clients to dynamically navigate through resources via hyperlinks provided in the responses.
+
+- **How do you handle pagination in REST APIs?**  
+  Pagination can be implemented using query parameters like `limit` and `offset` to control the number of results and where to start fetching from (e.g., `/users?limit=10&offset=20`).
+
+### 3. **Security**
+- **What is OAuth, and how does it work?**  
+  OAuth is an authorization framework that allows third-party services to exchange tokens for accessing resources on behalf of a user without exposing credentials.
+
+- **What is the difference between OAuth 1.0 and OAuth 2.0?**  
+  OAuth 2.0 is more secure and simpler than OAuth 1.0. OAuth 1.0 requires signatures for each request, while OAuth 2.0 uses tokens.
+
+- **What is JWT (JSON Web Token)? How is it used in APIs?**  
+  JWT is a token format used for securely transmitting information between parties. It’s commonly used in API authentication and authorization, where a server issues a signed token to the client to authenticate subsequent requests.
+
+- **How do you secure an API?**  
+  - Use HTTPS/SSL for secure communication.
+  - Implement OAuth, API keys, or JWT for authentication.
+  - Use rate limiting to protect against abuse.
+  - Validate input to prevent injection attacks.
+
+- **What is CORS (Cross-Origin Resource Sharing)?**  
+  CORS is a security feature implemented by browsers to restrict web pages from making requests to a different domain than the one that served the web page, unless explicitly allowed by the API.
+
+- **How can rate-limiting be implemented to secure APIs?**  
+  Rate limiting restricts the number of API requests a client can make in a specific time period. It can be implemented on the server side using tools like API Gateways.
+
+- **What are some common vulnerabilities in APIs?**  
+  - Injection attacks (SQL, NoSQL)
+  - Cross-Site Scripting (XSS)
+  - Cross-Site Request Forgery (CSRF)
+  - DDoS attacks
+  - API key leakage
+
+- **How do you authenticate and authorize API requests?**  
+  You can authenticate using methods like OAuth, JWT, and API keys. Authorization can be done using role-based access control (RBAC) or permission-based access.
+
+### 4. **Performance & Scalability**
+- **How do you handle large data in APIs?**  
+  - Use pagination, filtering, or lazy loading to limit the data.
+  - Implement data compression (e.g., GZIP).
+  - Stream the response for real-time consumption.
+
+- **What is caching, and how can it be implemented in APIs?**  
+  Caching stores frequently requested data to reduce load and improve speed. Caching can be implemented using:
+  - HTTP headers (`Cache-Control`, `ETag`).
+  - Server-side cache like Redis or in-memory cache.
+
+- **What is a load balancer, and how does it work in the context of APIs?**  
+  A load balancer distributes incoming requests across multiple servers to prevent overload and ensure high availability and performance.
+
+- **How can you optimize the performance of an API?**  
+  - Implement caching.
+  - Use lightweight data formats like JSON instead of XML.
+  - Minimize database queries and joins.
+  - Use pagination and data filtering.
+
+- **What is an API Gateway, and what role does it play?**  
+  An API Gateway acts as a single entry point for multiple APIs, handling tasks like request routing, authentication, rate-limiting, and load balancing.
+
+- **How can you handle timeouts and retries in APIs?**  
+  Set a timeout period for API responses, and if a request fails, implement retry logic with exponential backoff to avoid overwhelming the server.
+
+### 5. **Testing & Monitoring**
+- **How do you test an API?**  
+  API testing can be done by verifying the request/response payload, status codes, error handling, and performance. Tools like Postman, SoapUI, and curl are commonly used.
+
+- **What tools can be used for API testing?**  
+  - Postman
+  - SoapUI
+  - Swagger
+  - JMeter
+  - Newman (for automated tests)
+
+- **What are the differences between unit testing, integration testing, and end-to-end testing for APIs?**  
+  - **Unit Testing:** Tests individual components or methods in isolation.
+  - **Integration Testing:** Tests multiple components working together (e.g., API + Database).
+  - **End-to-End Testing:** Tests the entire workflow of an API from the client to the server.
+
+- **How do you handle error handling and logging in APIs?**  
+  Use standardized status codes and error messages. Implement proper logging for each request and error to track issues in production environments.
+
+- **What is API mocking, and when would you use it?**  
+  API mocking involves creating a fake API to simulate the behavior of a real API. It is useful for testing when the real API is not available or when testing edge cases
+
+.
+
+- **What are some ways to monitor API performance and availability?**  
+  Tools like Prometheus, Grafana, Datadog, and New Relic can monitor API performance, request times, and availability.
+
+- **What is the purpose of contract testing for APIs?**  
+  Contract testing ensures that the API adheres to a defined specification (contract), ensuring that changes in the API don’t break client integrations.
+
+### 6. **GraphQL API**
+- **What is GraphQL, and how does it differ from REST?**  
+  GraphQL is a query language for APIs that allows clients to request only the data they need, reducing over-fetching or under-fetching. Unlike REST, where endpoints represent resources, GraphQL allows a single endpoint to retrieve data from multiple resources.
+
+- **What are the main components of a GraphQL query?**  
+  - **Query:** Requests data.
+  - **Mutation:** Modifies data.
+  - **Subscription:** Fetches real-time updates.
+
+- **Explain the concept of a Resolver in GraphQL.**  
+  Resolvers are functions responsible for fetching the data for each field in a GraphQL query.
+
+- **How do you handle versioning in GraphQL?**  
+  Instead of versioning, GraphQL relies on evolving schemas by deprecating fields and allowing clients to specify the exact data they need, reducing the need for multiple versions.
+
+- **What is schema stitching in GraphQL?**  
+  Schema stitching allows combining multiple GraphQL schemas into a single schema, enabling querying across different GraphQL APIs.
+
+- **How does GraphQL handle over-fetching and under-fetching of data?**  
+  In GraphQL, clients specify the exact fields they want, avoiding the need to fetch unnecessary data (over-fetching) or too little data (under-fetching).
+
+### 7. **Advanced API Topics**
+- **What is a microservice architecture, and how do APIs fit into it?**  
+  Microservice architecture is a design pattern where an application is built as a collection of loosely coupled services. APIs are the communication interface between these services.
+
+- **What is the difference between RPC (Remote Procedure Call) and REST?**  
+  RPC focuses on executing a function or method on a server, while REST emphasizes resource manipulation via standard HTTP methods.
+
+- **What is API throttling, and how is it implemented?**  
+  API throttling limits the number of API requests a client can make within a time window. It is implemented to protect services from being overwhelmed and is often enforced using an API Gateway.
+
+- **Explain the concept of Circuit Breaker pattern in APIs.**  
+  The Circuit Breaker pattern is used to detect failures and prevent an application from making repeated requests to an API that is currently unavailable, allowing time for the API to recover.
+
+- **How do you handle API deprecation?**  
+  API deprecation is handled by:
+  - Providing clear documentation and warnings.
+  - Offering an alternative solution or version.
+  - Setting a timeframe for the deprecation process.
+
+- **What are WebSockets, and how do they differ from REST APIs?**  
+  WebSockets provide a full-duplex communication channel that allows real-time data exchange, unlike REST APIs, which are based on request/response patterns and are stateless.
+
+### 8. **Practical Scenarios**
+- **How would you design an API for an e-commerce application?**  
+  - Create separate resources for products, users, orders, and payments.
+  - Use proper HTTP methods and status codes.
+  - Implement authentication (OAuth/JWT) for secure access.
+  - Use pagination, filtering, and sorting for product listings.
+  - Implement rate-limiting and caching for better performance.
+
+- **How would you approach debugging an API that's returning incorrect data?**  
+  - Check the API logs for any errors or unexpected behavior.
+  - Validate the inputs and outputs against the API contract.
+  - Use tools like Postman or curl to manually test the API.
+  - Check the underlying database or service for data inconsistencies.
+
+- **How would you design an API to ensure backward compatibility?**  
+  - Use versioning.
+  - Deprecate old endpoints gradually.
+  - Avoid making breaking changes (like removing fields or changing response formats).
+  
+- **How would you handle versioning if you need to make breaking changes to an API?**  
+  Introduce a new version (e.g., `/v2/resource`), document the changes, and support the older version for some time before deprecating it.
+
+### 9. **Documentation & Tools**
+- **What tools do you use for API documentation?**  
+  Common tools include:
+  - Swagger (OpenAPI)
+  - Postman
+  - RAML (RESTful API Modeling Language)
+  - Apiary
+
+- **Why is documentation important in API development?**  
+  Documentation helps developers understand how to use the API, including available endpoints, request/response formats, error codes, and authentication mechanisms.
+
+- **What is Postman, and how is it used in API development and testing?**  
+  Postman is a tool for developing, testing, and documenting APIs. It allows users to create HTTP requests, organize them into collections, run automated tests, and mock responses.
+
+- **How do you define API specifications using OpenAPI?**  
+  OpenAPI is a specification for describing REST APIs. It defines API structure, request/response formats, parameters, and authentication methods using a YAML or JSON format.
+
+### 10. **Real-time APIs**
+- **What is a Webhook, and how does it work?**  
+  A Webhook is a way for one system to send real-time data to another system when an event occurs. It works by making an HTTP request to a specified callback URL.
+
+- **What is the difference between WebSocket and HTTP API?**  
+  WebSocket allows real-time, bidirectional communication between the server and client, while HTTP APIs are stateless and based on a request-response cycle.
+
+- **What is Server-Sent Events (SSE), and how does it differ from WebSockets?**  
+  SSE allows the server to push updates to the client via HTTP. Unlike WebSockets, SSE is one-way communication (server-to-client) and is typically used for live updates.
