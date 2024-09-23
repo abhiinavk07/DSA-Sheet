@@ -1,0 +1,21 @@
+/ *
+ Postman course notes : https://github.com/vdespa/introduction-to-postman-course/blob/main/course-notes.md
+* /
+
+
+- 3 tools to call APIs : Postman, Thunderclient, curl cmds
+- Postman : Tool (Client) to interact with web based API (server) by sending and receiving data through http requests.
+- 3 ways to use Postman :
+1. Web
+2. VsCode extension
+3. Postman App
+- Things to explore : Home, Workspace, Collections, Variables & Environments, Query parameters, path variables,.
+- Postman variables : diff types of variables. eg env, global etc
+- Postman console : while debugging and performing API test automation
+- API test automation : can take coPilot help for writing postman testing scripts
+- Collection Runner
+- monitor
+- ** Newman : run collection from Cli
+- ** html reporter : html graphical representation of collection
+- Postman doc : https://learning.postman.com/docs/sending-requests/variables/variables/
+
